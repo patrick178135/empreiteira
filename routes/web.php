@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\CidadeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CidadeController; /////////////////////////////
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,5 +19,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('cidades', CidadeController::class);
+Route::resource('funcionarios', FuncionarioController::class);
+Route::resource('clientes', ClienteController::class);
 
 require __DIR__.'/auth.php';
