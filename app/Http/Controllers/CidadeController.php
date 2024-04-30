@@ -33,6 +33,9 @@ class CidadeController extends Controller
             'nome' => $request->input('nome'),
             'uf' => $request->input('uf')
         ]);
+        $cidade->save();
+
+        return redirect()->route('cidades.index')->with('success', 'Cidade criada com sucesso!');
     }
 
     /**
@@ -40,7 +43,8 @@ class CidadeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $cidade = Cidade::findOrfail($id);
+        return view('cidades.show', compact('cidade'));
     }
 
     /**
