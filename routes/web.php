@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CidadeController; /////////////////////////////
+use App\Http\Controllers\CidadeController; 
+use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\ClienteController;
 
 Route::get('/', function () {
     return view('welcome');

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Funcionario; /////////////////////////////////////
+use App\Models\Funcionario; 
 
 class FuncionarioController extends Controller
 {
