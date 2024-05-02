@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CidadeController; 
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ContratoController;
+use App\Http\Controllers\ServicoController;
+use App\Http\Controllers\SolicitacaoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,5 +26,8 @@ Route::middleware('auth')->group(function () {
 Route::resource('cidades', CidadeController::class);
 Route::resource('funcionarios', FuncionarioController::class);
 Route::resource('clientes', ClienteController::class);
+Route::resource('contratos', ContratoController::class);
+Route::resource('servicos', ServicoController::class);
+Route::resource('solicitacoes', SolicitacaoController::class);
 
 require __DIR__.'/auth.php';

@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('solicitacoes', function (Blueprint $table) {
             $table->id();
             $table->float('preco_final');
-            $table->unsignedBigInteger('contratos_id');
-            $table->unsignedBigInteger('servicos_id');
+            $table->unsignedBigInteger('contrato_id');
+            $table->unsignedBigInteger('servico_id');
             $table->timestamps();
 
-            $table->foreign('contratos_id')->references('id')->on('contratos');
-            $table->foreign('servicos_id')->references('id')->on('servicos');
+            $table->foreign('contrato_id')->references('id')->on('contratos');
+            $table->foreign('servico_id')->references('id')->on('servicos');
         });
     }
 

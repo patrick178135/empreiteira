@@ -1,10 +1,10 @@
 <x-app-layout>
     <head>
-        <link rel="stylesheet" href="{{ asset('css/clientes/index.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/servicos/index.css') }}">
     </head>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
-            {{ __('Clientes') }}
+            {{ __('Servicos') }}
         </h2>
     </x-slot>
     @if (session('success'))
@@ -15,28 +15,28 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a href="{{ route('clientes.create') }}" class="btn btn-primary">Novo Cliente</a>
+                <a href="{{ route('servicos.create') }}" class="btn btn-primary">Novo Serviço</a>
                 <table class="table">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nome</th>
-                            <th>Endereço</th>
-                            <th>Cidade</th>
+                            <th>Descrição</th>
+                            <th>Preço</th>
+                            <th>Funcionário</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($clientes as $cliente)
+                        @foreach($servicos as $servico)
                         <tr>
-                            <td>{{ $cliente->id }}</td>
-                            <td>{{ $cliente->nome }}</td>
-                            <td>{{ $cliente->endereco }}</td>
-                            <td>{{ $cliente->cidade->nome }}</td>
+                            <td>{{ $servico->id }}</td>
+                            <td>{{ $servico->descricao }}</td>
+                            <td>{{ $servico->preco }}</td>
+                            <td>{{ $servico->funcionario->nome }}</td>
                             <td>
-                                <a href="{{ route('clientes.show', $cliente->id) }}" class="btn btn-info">Detalhes</a>
-                                <a href="{{ route('clientes.edit', $cliente) }}" class="btn btn-warning">Editar</a>
-                                <form action="{{ route('clientes.destroy', $cliente) }}" method="POST" style="display:inline;">
+                                <a href="{{ route('servicos.show', $servico->id) }}" class="btn btn-info">Detalhes</a>
+                                <a href="{{ route('servicos.edit', $servico) }}" class="btn btn-warning">Editar</a>
+                                <form action="{{ route('servicos.destroy', $servico) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Deletar</button>
