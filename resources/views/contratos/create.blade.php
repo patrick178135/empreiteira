@@ -1,11 +1,11 @@
 <x-app-layout>
     <head>
-        <link rel="stylesheet" href="{{ asset('css/clientes/create.css') }}">
-        <title>Nova Cliente</title>
+        <link rel="stylesheet" href="{{ asset('css/contratos/create.css') }}">
+        <title>Novo Contrato</title>
     </head>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
-            {{ __('Criar Cliente') }}
+            {{ __('Criar Contrato') }}
         </h2>
     </x-slot>
     @if(session('success'))
@@ -16,28 +16,28 @@
     @endif
     <body>
         <div class="container">
-            <form action="{{ route('clientes.store') }}" method="POST">
+            <form action="{{ route('contratos.store') }}" method="POST">
                 <!-- Token CSRF para proteção contra ataques CSRF -->
                 @csrf
                 <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" name="nome" required>
+                    <label for="data">Data:</label>
+                    <input type="date" name="data" required>
                 </div>
                 <div class="form-group">
-                    <label for="endereco">Endereço:</label>
-                    <input type="text" name="endereco" required>
+                    <label for="valor_total">Valor total:</label>
+                    <input type="number" name="valor_total" required>
                 </div>
                 <div class="form-group">
-                    <label for="cidade_id">Cidade</label>
-                    <select class="form-control" name="cidade_id" required>
-                        <option value="">Selecione uma cidade</option>
-                        @foreach($cidades as $cidade)
-                            <option value="{{ $cidade->id }}">{{ $cidade->nome }}</option>
+                    <label for="cliente_id">Cliente</label>
+                    <select class="form-control" name="cliente_id" required>
+                        <option value="">Selecione uma cliente</option>
+                        @foreach($clientes as $cliente)
+                            <option value="{{ $cliente->id }}">{{ $cliente->nome }}</option>
                         @endforeach
                     </select>
                 </div>
                 <button type="submit" class="btn btn-success">Salvar</button>
-                <a href="{{ route('clientes.index') }}" class="btn btn-secondary">Cancelar</a>
+                <a href="{{ route('contratos.index') }}" class="btn btn-secondary">Cancelar</a>
             </form>
         </div>
     </body>

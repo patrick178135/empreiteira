@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cliente;
+use App\Models\Cidade;
 
 class ClienteController extends Controller
 {
@@ -22,7 +23,8 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('clientes.create');
+        $cidades = Cidade::all();
+        return view('clientes.create', compact('cidades'));
     }
 
     /**
@@ -30,14 +32,15 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $cliente = new Cliente([
-            'nome' => $request->input('nome'),
-            'endereco' => $request->input('endereco')
+        $request->validate([
+            'nome' => 'required',
+            'endereco' => 'required',
+            'cidade_id' => 'required|exists:cidades,id'
         ]);
 
-        $cliente->save();
+        Cliente::create($request->all());
 
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientes.index')->with('success', 'Cliente criado com sucesso!');
     }
 
     /**
@@ -45,7 +48,9 @@ class ClienteController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $cliente = Cliente::findOrfail($id);
+        
+        return view('clientes.show', compact('cliente'));
     }
 
     /**
@@ -53,7 +58,11 @@ class ClienteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $cliente = Cliente::findOrfail($id);
+
+        $cidades = Cidade::all();
+        
+        return view('clientes.edit', compact('cliente', 'cidades'));
     }
 
     /**
@@ -61,7 +70,10 @@ class ClienteController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $cliente = Cliente::findOrFail($id);
+        
+        $cliente->update($request->all());
+        return redirect()->route('clientes.index')->with('success', 'Cliente atualizado com sucesso!');
     }
 
     /**
@@ -69,6 +81,10 @@ class ClienteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $cliente = Cliente::findOrFail($id);
+        $cliente->delete();
+        return redirect()->route('clientes.index')->with('success', 'Cliente excluído com sucesso!');
+
+
     }
 }
