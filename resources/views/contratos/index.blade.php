@@ -34,14 +34,13 @@
                             <td>{{ $contrato->valor_total }}</td>
                             <td>{{ $contrato->cliente->nome }}</td>
                             <td>
-                                <a href="{{ route('contratos.show', $contrato->id) }}" class="btn btn-info">Detalhes</a>
+                                <a href="{{ route('contratos.show', $contrato->id) }}" class="btn btn-info">Solicitações</a>
                                 <a href="{{ route('contratos.edit', $contrato) }}" class="btn btn-warning">Editar</a>
                                 <form action="{{ route('contratos.destroy', $contrato) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Deletar</button>
                                 </form>
-                                <a href="{{ route('solicitacoes.index', $contrato->id) }}" class="btn btn-info">Solicitações</a>
                             </td>
                         </tr>
                         @endforeach
