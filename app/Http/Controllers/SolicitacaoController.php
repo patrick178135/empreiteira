@@ -45,7 +45,7 @@ class SolicitacaoController extends Controller
 
         Solicitacao::create($request->all());
 
-        return redirect()->route('solicitacoes.index')->with('success', 'Solictação criada com sucesso!');
+        return redirect()->route('solicitacoes.index');
     }
     /**
      * Display the specified resource.
@@ -78,7 +78,7 @@ class SolicitacaoController extends Controller
         $solicitacao = Solicitacao::findOrFail($id);
         
         $solicitacao->update($request->all());
-        return redirect()->route('solicitacoes.index')->with('success', 'Solicitação atualizado com sucesso!');
+        return redirect()->route('solicitacoes.index');
     }
 
     /**
@@ -88,6 +88,6 @@ class SolicitacaoController extends Controller
     {
         $solicitacao = Solicitacao::findOrFail($id);
         $solicitacao->delete();
-        return redirect()->route('solicitacoes.index')->with('success', 'Solicitação excluído com sucesso!');
+        return redirect()->route('solicitacoes.index');
     }
 }

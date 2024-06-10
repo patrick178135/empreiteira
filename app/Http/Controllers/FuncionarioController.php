@@ -36,7 +36,7 @@ class FuncionarioController extends Controller
 
         $funcionario->save();
 
-        return redirect()->route('funcionarios.index')->with('success', 'Funcionário criada com sucesso!');
+        return redirect()->route('funcionarios.index');
     }
 
     /**
@@ -69,7 +69,7 @@ class FuncionarioController extends Controller
         $funcionario->funcao = $request->input('funcao');
 
         $funcionario->save();
-        return redirect()->route('funcionarios.index')->with('success', 'Funcionário criado com sucesso!');
+        return redirect()->route('funcionarios.index');
     }
 
     /**
@@ -79,6 +79,6 @@ class FuncionarioController extends Controller
     {
         $funcionario = Funcionario::findOrfail($id);
         $funcionario->delete();
-        return redirect()->route('funcionarios.index')->with('success', 'Funcionário Excluido com sucesso!');
+        return redirect()->route('funcionarios.index');
     }
 }
