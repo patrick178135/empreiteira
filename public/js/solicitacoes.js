@@ -11,7 +11,7 @@ function deletar(id){
         if (result.isConfirmed) {
           Swal.fire({
             title: "Deletado!",
-            text: "Serviço Deletado!",
+            text: "Solicitação Deletada!",
             icon: "success"
           });
           document.getElementById('form-' + id).submit();
@@ -19,11 +19,11 @@ function deletar(id){
       });
 }
 
-function servicocriado(){
+function solicitacaocriada(){
     Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Novo Serviço Criado",
+        title: "Nova Solicitação Criada",
         showConfirmButton: false,
         timer: 1500
       });
@@ -33,7 +33,7 @@ function editado(){
   Swal.fire({
       position: "top-end",
       icon: "success",
-      title: "Serviço Editado",
+      title: "solicitação Editada",
       showConfirmButton: false,
       timer: 1500
     });

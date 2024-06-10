@@ -1,6 +1,8 @@
 <x-app-layout>
     <head>
         <link rel="stylesheet" href="{{ asset('css/clientes/create.css') }}">
+        <script src="{{ asset('js/clientes.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <title>Nova Cliente</title>
     </head>
     <x-slot name="header">
@@ -36,7 +38,7 @@
                         @endforeach
                     </select>
                 </div>
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-success" onclick="clientecriado()">Salvar</button>
                 <a href="{{ route('clientes.index') }}" class="btn btn-secondary">Cancelar</a>
             </form>
         </div>
