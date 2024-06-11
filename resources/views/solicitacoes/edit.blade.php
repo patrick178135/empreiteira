@@ -1,6 +1,8 @@
 <x-app-layout>
     <head>
         <link rel="stylesheet" href="{{ asset('css/solicitacoes/edit.css') }}">
+        <script src="{{ asset('js/solicitacoes.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Editar Solicitação</title>
@@ -33,7 +35,7 @@
                         @endforeach
                     </select>
                 </div>
-                <button type="submit" class="btn btn-success">Salvar Alterações</button>
+                <button type="submit" class="btn btn-success" onclick="editado()">Salvar Alterações</button>
                 <a href="{{ route('solicitacoes.index') }}" class="btn btn-secondary">Cancelar</a>
             </form>
         </div>

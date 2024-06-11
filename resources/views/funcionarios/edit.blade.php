@@ -1,6 +1,8 @@
 <x-app-layout>
     <head>
         <link rel="stylesheet" href="{{ asset('css/funcionarios/edit.css') }}">
+        <script src="{{ asset('js/funcionarios.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Editar Funcionário</title>
@@ -19,7 +21,7 @@
                     <label for="funcao">Função:</label>
                     <input type="text" name="funcao" value="{{ $funcionario->funcao }}">
                 </div>
-                <button type="submit" class="btn btn-success">Salvar Alterações</button>
+                <button type="submit" class="btn btn-success" onclick="editado()">Salvar Alterações</button>
                 <a href="{{ route('funcionarios.index') }}" class="btn btn-secondary">Cancelar</a>
             </form>
         </div>

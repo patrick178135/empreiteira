@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Solicitacao extends Model
 {
     protected $table = 'solicitacoes';
-    protected $fillable = ['preco_final','conrtato_id','servico_id'];
+    protected $fillable = ['preco_final','contrato_id','servico_id'];
 
     public function contrato(){
         return $this->belongsTo(Contrato::class);

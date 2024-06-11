@@ -1,6 +1,8 @@
 <x-app-layout>
     <head>
         <link rel="stylesheet" href="{{ asset('css/servicos/index.css') }}">
+        <script src="{{ asset('js/servicos.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
@@ -36,10 +38,10 @@
                             <td>
                                 <a href="{{ route('servicos.show', $servico->id) }}" class="btn btn-info">Detalhes</a>
                                 <a href="{{ route('servicos.edit', $servico) }}" class="btn btn-warning">Editar</a>
-                                <form action="{{ route('servicos.destroy', $servico) }}" method="POST" style="display:inline;">
+                                <form id ="form-{{ $servico->id  }}" action="{{ route('servicos.destroy', $servico) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Deletar</button>
+                                    <button type="button" class="btn btn-danger" onclick ="deletar({{ $servico->id }})">Deletar</button>
                                 </form>
                             </td>
                         </tr>

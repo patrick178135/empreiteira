@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contrato;
 use App\Models\Cliente;
+use App\Models\Solicitacao;
 
 class ContratoController extends Controller
 {
@@ -42,7 +43,7 @@ class ContratoController extends Controller
 
         Contrato::create($request->all());
 
-        return redirect()->route('contratos.index')->with('success', 'Contrato criado com sucesso!');
+        return redirect()->route('contratos.index');
     }
 
     /**
@@ -50,9 +51,9 @@ class ContratoController extends Controller
      */
     public function show(string $id)
     {
-        $contrato = Contrato::findOrfail($id);
+        $solicitacoes = Solicitacao::where('contrato_id', $id)->get();
         
-        return view('contratos.show', compact('contrato'));
+        return view('contratos.solicitacoes', compact('solicitacoes'));
     }
 
     /**
@@ -75,7 +76,7 @@ class ContratoController extends Controller
         $contrato = Contrato::findOrFail($id);
         
         $contrato->update($request->all());
-        return redirect()->route('contratos.index')->with('success', 'Contrato atualizado com sucesso!');
+        return redirect()->route('contratos.index');
     }
 
     /**
@@ -85,6 +86,6 @@ class ContratoController extends Controller
     {
         $contrato = Contrato::findOrFail($id);
         $contrato->delete();
-        return redirect()->route('contratos.index')->with('success', 'Contrato excluído com sucesso!');
+        return redirect()->route('contratos.index');
     }
 }

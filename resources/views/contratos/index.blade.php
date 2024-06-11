@@ -1,6 +1,8 @@
 <x-app-layout>
     <head>
         <link rel="stylesheet" href="{{ asset('css/contratos/index.css') }}">
+        <script src="{{ asset('js/contratos.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
@@ -36,12 +38,11 @@
                             <td>
                                 <a href="{{ route('contratos.show', $contrato->id) }}" class="btn btn-info">Detalhes</a>
                                 <a href="{{ route('contratos.edit', $contrato) }}" class="btn btn-warning">Editar</a>
-                                <form action="{{ route('contratos.destroy', $contrato) }}" method="POST" style="display:inline;">
+                                <form id ="form-{{ $contrato->id  }}" action="{{ route('contratos.destroy', $contrato) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Deletar</button>
+                                    <button type="button" class="btn btn-danger" onclick ="deletar({{ $contrato->id }})">Deletar</button>
                                 </form>
-                                <a href="{{ route('solicitacoes.index', $contrato->id) }}" class="btn btn-info">Solicitações</a>
                             </td>
                         </tr>
                         @endforeach

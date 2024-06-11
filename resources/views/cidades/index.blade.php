@@ -1,6 +1,8 @@
 <x-app-layout>
     <head>
         <link rel="stylesheet" href="{{ asset('css/cidades/index.css') }}">
+        <script src="{{ asset('js/cidades.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
@@ -34,10 +36,10 @@
                             <td>
                                 <a href="{{ route('cidades.show', $cidade->id) }}" class="btn btn-info">Detalhes</a>
                                 <a href="{{ route('cidades.edit', $cidade) }}" class="btn btn-warning">Editar</a>
-                                <form action="{{ route('cidades.destroy', $cidade) }}" method="POST" style="display:inline;">
+                                <form id ="form-{{ $cidade->id  }}" action="{{ route('cidades.destroy', $cidade) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Deletar</button>
+                                    <button type="button" class="btn btn-danger" onclick ="deletar({{ $cidade->id }})">Deletar</button>
                                 </form>
                             </td>
                         </tr>

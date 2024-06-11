@@ -35,7 +35,7 @@ class CidadeController extends Controller
         ]);
         $cidade->save();
 
-        return redirect()->route('cidades.index')->with('success', 'Cidade criada com sucesso!');
+        return redirect()->route('cidades.index');
     }
 
     /**
@@ -69,7 +69,7 @@ class CidadeController extends Controller
         $cidade->uf = $request->input('uf');
     
         $cidade->save();
-        return redirect()->route('cidades.index')->with('success', 'Cidade criado com sucesso!');
+        return redirect()->route('cidades.index');
     }
 
     /**
@@ -79,6 +79,6 @@ class CidadeController extends Controller
     {
         $cidade = Cidade::findOrFail($id);
         $cidade->delete();
-        return redirect()->route('cidades.index')->with('success', 'Cidade Excluido com sucesso!');
+        return redirect()->route('cidades.index');
     }
 }

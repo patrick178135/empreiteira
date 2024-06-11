@@ -42,7 +42,7 @@ class ServicoController extends Controller
 
         Servico::create($request->all());
 
-        return redirect()->route('servicos.index')->with('success', 'Serviço criado com sucesso!');
+        return redirect()->route('servicos.index');
     }
 
     /**
@@ -75,7 +75,7 @@ class ServicoController extends Controller
         $servico = Servico::findOrFail($id);
         
         $servico->update($request->all());
-        return redirect()->route('servicos.index')->with('success', 'Serviço atualizado com sucesso!');
+        return redirect()->route('servicos.index');
     }
 
     /**
@@ -85,6 +85,6 @@ class ServicoController extends Controller
     {
         $servico = Servico::findOrFail($id);
         $servico->delete();
-        return redirect()->route('servicos.index')->with('success', 'Serviço excluído com sucesso!');
+        return redirect()->route('servicos.index');
     }
 }

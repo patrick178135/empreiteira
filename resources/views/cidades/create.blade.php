@@ -1,6 +1,8 @@
 <x-app-layout>
     <head>
         <link rel="stylesheet" href="{{ asset('css/cidades/create.css') }}">
+        <script src="{{ asset('js/cidades.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <title>Nova Cidade</title>
     </head>
     <x-slot name="header">
@@ -27,7 +29,7 @@
                     <label for="uf">UF:</label>
                     <input type="text" name="uf" required>
                 </div>
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-success" onclick="cidadecriada()">Salvar</button>
                 <a href="{{ route('cidades.index') }}" class="btn btn-secondary">Cancelar</a>
             </form>
         </div>

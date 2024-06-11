@@ -1,6 +1,8 @@
 <x-app-layout>
     <head>
         <link rel="stylesheet" href="{{ asset('css/solicitacoes/create.css') }}">
+        <script src="{{ asset('js/solicitacoes.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <title>Nova Solicitação de serviço</title>
     </head>
     <x-slot name="header">
@@ -42,7 +44,7 @@
                         @endforeach
                     </select>
                 </div>
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-success" onclick="solicitacaocriada()">Salvar</button>
                 <a href="{{ route('solicitacoes.index') }}" class="btn btn-secondary">Cancelar</a>
             </form>
         </div>

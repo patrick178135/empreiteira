@@ -1,6 +1,8 @@
 <x-app-layout>
     <head>
         <link rel="stylesheet" href="{{ asset('css/funcionarios/create.css') }}">
+        <script src="{{ asset('js/funcionarios.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <title>Novo Funcionário</title>
     </head>
     <x-slot name="header">
@@ -28,7 +30,7 @@
                     <label for="funcao">Função:</label>
                     <input type="text" name="funcao">
                 </div>
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-success" onclick="funcionariocriado()">Salvar</button>
                 <a href="{{ route('funcionarios.store') }}" class="btn btn-secundary">Cancelar</a>
             </form>
         </div>
