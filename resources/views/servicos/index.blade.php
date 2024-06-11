@@ -33,7 +33,7 @@
                         <tr>
                             <td>{{ $servico->id }}</td>
                             <td>{{ $servico->descricao }}</td>
-                            <td>{{ $servico->preco }}</td>
+                            <td>${{ $servico->preco }},00</td>
                             <td>{{ $servico->funcionario->nome }}</td>
                             <td>
                                 <a href="{{ route('servicos.show', $servico->id) }}" class="btn btn-info">Detalhes</a>

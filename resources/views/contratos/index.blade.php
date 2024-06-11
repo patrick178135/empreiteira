@@ -33,10 +33,10 @@
                         <tr>
                             <td>{{ $contrato->id }}</td>
                             <td>{{ $contrato->data }}</td>
-                            <td>{{ $contrato->valor_total }}</td>
+                            <td>${{ $contrato->valor_total }},00</td>
                             <td>{{ $contrato->cliente->nome }}</td>
                             <td>
-                                <a href="{{ route('contratos.show', $contrato->id) }}" class="btn btn-info">Detalhes</a>
+                                <a href="{{ route('contratos.show', $contrato->id) }}" class="btn btn-info">Solicitações</a>
                                 <a href="{{ route('contratos.edit', $contrato) }}" class="btn btn-warning">Editar</a>
                                 <form id ="form-{{ $contrato->id  }}" action="{{ route('contratos.destroy', $contrato) }}" method="POST" style="display:inline;">
                                     @csrf
