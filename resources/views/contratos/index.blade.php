@@ -41,7 +41,6 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Deletar</button>
                                 </form>
-                                <a href="{{ route('solicitacoes.index', $contrato->id) }}" class="btn btn-info">Solicitações</a>
                             </td>
                         </tr>
                         @endforeach

@@ -1,6 +1,8 @@
 <x-app-layout>
     <head>
         <link rel="stylesheet" href="{{ asset('css/servicos/create.css') }}">
+        <script src="{{ asset('js/servicos.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <title>Novo Serviço</title>
     </head>
     <x-slot name="header">
@@ -36,7 +38,7 @@
                         @endforeach
                     </select>
                 </div>
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-success" onclick="servicocriado()">Salvar</button>
                 <a href="{{ route('servicos.index') }}" class="btn btn-secondary">Cancelar</a>
             </form>
         </div>
