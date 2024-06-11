@@ -44,6 +44,7 @@ class CidadeController extends Controller
     public function show(string $id)
     {
         $cidade = Cidade::findOrfail($id);
+        
         return view('cidades.show', compact('cidade'));
     }
 
@@ -52,7 +53,10 @@ class CidadeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        
+        $cidade = Cidade::findOrFail($id);
+   
+        return view('cidades.edit', compact('cidade'));
     }
 
     /**
@@ -60,7 +64,12 @@ class CidadeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $cidade = Cidade::findOrFail($id);
+        $cidade->nome = $request->input('nome');
+        $cidade->uf = $request->input('uf');
+    
+        $cidade->save();
+        return redirect()->route('cidades.index')->with('success', 'Cidade criado com sucesso!');
     }
 
     /**
@@ -68,6 +77,8 @@ class CidadeController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $cidade = Cidade::findOrFail($id);
+        $cidade->delete();
+        return redirect()->route('cidades.index')->with('success', 'Cidade Excluido com sucesso!');
     }
 }

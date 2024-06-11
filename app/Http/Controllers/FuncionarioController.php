@@ -29,14 +29,14 @@ class FuncionarioController extends Controller
      */
     public function store(Request $request)
     {
-        $funcionario = new funccionario([
+        $funcionario = new funcionario([
             'nome' => $request->input('nome'),
             'funcao' => $request->input('funcao')
         ]);
 
-        $funcao->save();
+        $funcionario->save();
 
-        return redirect()->route('funcionarios.index');
+        return redirect()->route('funcionarios.index')->with('success', 'Funcionário criada com sucesso!');
     }
 
     /**
@@ -44,7 +44,9 @@ class FuncionarioController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $funcionario = Funcionario::findOrfail($id);
+
+        return view('funcionarios.show', compact('funcionario'));
     }
 
     /**
@@ -52,7 +54,9 @@ class FuncionarioController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $funcionario = Funcionario::findOrfail($id);
+
+        return view('funcionarios.edit', compact('funcionario'));
     }
 
     /**
@@ -60,7 +64,12 @@ class FuncionarioController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $funcionario = Funcionario::findOrfail($id);
+        $funcionario->nome = $request->input('nome');
+        $funcionario->funcao = $request->input('funcao');
+
+        $funcionario->save();
+        return redirect()->route('funcionarios.index')->with('success', 'Funcionário criado com sucesso!');
     }
 
     /**
@@ -68,6 +77,8 @@ class FuncionarioController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $funcionario = Funcionario::findOrfail($id);
+        $funcionario->delete();
+        return redirect()->route('funcionarios.index')->with('success', 'Funcionário Excluido com sucesso!');
     }
 }

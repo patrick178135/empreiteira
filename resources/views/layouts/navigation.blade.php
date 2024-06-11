@@ -13,7 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Principal') }}
                     </x-nav-link>
                     <x-nav-link  href="{{ route('cidades.index') }}">
                         {{ __('Cidades') }}
@@ -23,6 +23,15 @@
                     </x-nav-link>
                     <x-nav-link  href="{{ route('clientes.index') }}">
                         {{ __('Clientes') }}
+                    </x-nav-link>
+                    <x-nav-link  href="{{ route('servicos.index') }}">
+                        {{ __('Serviços') }}
+                    </x-nav-link>
+                    <x-nav-link  href="{{ route('contratos.index') }}">
+                        {{ __('Contratos') }}
+                    </x-nav-link>
+                    <x-nav-link  href="{{ route('solicitacoes.index') }}">
+                        {{ __('Solicitaões') }}
                     </x-nav-link>
                 </div>
             </div>
