@@ -29,12 +29,12 @@ class FuncionarioController extends Controller
      */
     public function store(Request $request)
     {
-        $funcionario = new funcionario([
-            'nome' => $request->input('nome'),
-            'funcao' => $request->input('funcao')
+        $request->validate([
+            'nome' => 'required',
+            'funcao' => 'required'
         ]);
 
-        $funcionario->save();
+        Funcionario::create($request->all());
 
         return redirect()->route('funcionarios.index');
     }

@@ -29,11 +29,12 @@ class CidadeController extends Controller
      */
     public function store(Request $request)
     {
-        $cidade = new Cidade([
-            'nome' => $request->input('nome'),
-            'uf' => $request->input('uf')
+        $request->validate([
+            'nome' => 'required',
+            'uf' => 'required'
         ]);
-        $cidade->save();
+
+        Cidade::create($request->all());
 
         return redirect()->route('cidades.index');
     }
