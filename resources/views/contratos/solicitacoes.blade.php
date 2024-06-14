@@ -35,7 +35,7 @@
                                     <form action="{{ route('solicitacoes.destroy', $solicitacao) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Deletar</button>
+                                        <button type="button" class="btn btn-danger" onclick ="deletar({{ $solicitacao->id }})">Deletar</button>
                                     </form>
                             </td>        
                         </tr>

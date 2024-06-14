@@ -79,9 +79,11 @@ class SolicitacaoController extends Controller
 
         $solicitacao->update($request->all());
 
-        $solicitacoes = Solicitacao::where('contrato_id', $id)->get();
+        // $solicitacoes = Solicitacao::where('contrato_id', $id)->get();
 
-        return view('contratos.solicitacoes', compact('solicitacoes'));
+        // return view('contratos.solicitacoes', compact('solicitacoes'));
+
+        return redirect()->route('contratos.index');
     }
 
     /**
