@@ -14,6 +14,11 @@
             <div class="image-container ">
                 <img src="{{ asset('img/banner.png') }}" class="banner" alt="">
             </div>
+            <div class= "imagens">
+                <img src="{{ asset('img/1.png') }}" class="fotos" alt="">
+                <img src="{{ asset('img/2.png') }}" class="fotos" alt="">
+                <img src="{{ asset('img/3.png') }}" class="fotos" alt="">
+            </div>
             <div class= "card">
                 <img src="{{ asset('img/d1.png') }}" class="cardimg" alt="">
                     <div calss="texto">
